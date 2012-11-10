@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Express 2012 for Windows Desktop
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlywheelBackupUI", "FlywheelBackup\FlywheelBackupUI.csproj", "{DD8F1D45-D08D-4C8E-BEDD-DF1BC31485A2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BackupLib", "BackupLib\BackupLib.csproj", "{2D9DC5A8-04E5-4B47-82F4-13ED4169A999}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "flywheel-backup-cli", "flywheel-backup-cli\flywheel-backup-cli.csproj", "{E3E59274-2F17-4221-B0FE-132040BCA27B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DD8F1D45-D08D-4C8E-BEDD-DF1BC31485A2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DD8F1D45-D08D-4C8E-BEDD-DF1BC31485A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DD8F1D45-D08D-4C8E-BEDD-DF1BC31485A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DD8F1D45-D08D-4C8E-BEDD-DF1BC31485A2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2D9DC5A8-04E5-4B47-82F4-13ED4169A999}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2D9DC5A8-04E5-4B47-82F4-13ED4169A999}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2D9DC5A8-04E5-4B47-82F4-13ED4169A999}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2D9DC5A8-04E5-4B47-82F4-13ED4169A999}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E3E59274-2F17-4221-B0FE-132040BCA27B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E3E59274-2F17-4221-B0FE-132040BCA27B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E3E59274-2F17-4221-B0FE-132040BCA27B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E3E59274-2F17-4221-B0FE-132040BCA27B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
