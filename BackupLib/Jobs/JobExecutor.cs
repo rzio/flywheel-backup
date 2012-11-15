@@ -41,11 +41,11 @@ namespace io.rz.Flywheel.BackupLib.Jobs
         {
 
             XElement rootElement = new XElement("BackupSet"
-                    , new XAttribute("folder", job.Task.AbsolutePath)
+                    , new XAttribute("folder", job.AbsolutePath)
                     , new XAttribute("date", DateTime.Now.ToString("yyyy-MM-ddTHH:mm:ssZ")));
             List<Task> tasks = new List<Task>();
 
-            foreach (var fileTask in job.Task)
+            foreach (var fileTask in enumerateFileBackupTasks(job.AbsolutePath,job.Recursive))
             {
                 Task task = Task<ResultType<BackupItem>>.Factory.StartNew(() =>
                    {
@@ -65,7 +65,7 @@ namespace io.rz.Flywheel.BackupLib.Jobs
                            lock (syncRoot)
                            {
                                rootElement.Add(new XElement("file",
-                                   new XAttribute("local", typedResult.LocalFilePath.Replace(job.Task.AbsolutePath, "")),
+                                   new XAttribute("local", typedResult.LocalFilePath.Replace(job.AbsolutePath, "")),
                                    new XAttribute("remote", typedResult.RemoteFileName)));
                            }
                            return res;
@@ -92,9 +92,32 @@ namespace io.rz.Flywheel.BackupLib.Jobs
             return;// BackupResult.Finished("Finished backing up" + job.Task.AbsolutePath);
         }
 
+        public IEnumerable<FileBackupTask> enumerateFileBackupTasks(string absolutePath, bool recursive)
+        {
+            if (Directory.Exists(absolutePath))
+            {
+                foreach (String filename in Directory.GetFiles(absolutePath, "*.*", recursive ? SearchOption.AllDirectories : SearchOption.TopDirectoryOnly))
+                {
+                    yield return new FileBackupTask(filename);
+                }
+            }
+            else
+            {
+                if (File.Exists(absolutePath))
+                {
+                    yield return new FileBackupTask(absolutePath);
+                }
+                else
+                {
+                    yield break;
+                }
+            }
+        }
+
+
         private void DoRestoreJob(RestoreJob job)
         {
-            
+
 
             List<Task> tasks = new List<Task>();
             XDocument doc = XDocument.Load(job.MetadataFilePath);

@@ -56,7 +56,6 @@
     <Compile Include="Restore\RestoreItems.cs" />
     <Compile Include="ResultType.cs" />
     <Compile Include="Backup\BackupItems.cs" />
-    <Compile Include="Backup\DirectoryBackupTask.cs" />
     <Compile Include="Backup\FileBackupTask.cs" />
     <Compile Include="ProcessChain.cs" />
     <Compile Include="Backup\Processors\AzureUploaderBackupProcessor.cs" />

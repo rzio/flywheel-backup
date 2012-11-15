@@ -41,7 +41,7 @@ namespace FlywheelBackup
             //chain.Backup(new DirectoryBackupTask(txtFolder.Text,false));
 
             var executor = new JobExecutor();
-            executor.SubmitBackupJob(new BackupJob(new DirectoryBackupTask(@"C:\data\Resources", true),chain, "metadata.xml"));
+            executor.SubmitBackupJob(new BackupJob(@"C:\data\Resources", true,chain, "metadata.xml"));
             BackupInProgress b = new BackupInProgress(executor);
             b.ShowDialog();
             

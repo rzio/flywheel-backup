@@ -26,7 +26,6 @@ namespace io.rz.Flywheel.BackupCLI
 
             if (options.Backup)
             {
-                //string connectionString = string.Format("DefaultEndpointsProtocol=https;AccountName={0};AccountKey={1}", "flywheel", "ZWWMJWJXo6QRMf6d6Bh2bnxL5aH+tamhGxrY19Z4/sCs+Xe/w4ajzi1P2/uuW4F00qoAi5xPBqe5+xDNkJ6tyw==");
                 string connectionString = string.Format("DefaultEndpointsProtocol=https;AccountName={0};AccountKey={1}", options.AzureAccount, options.AzureKey);
                 
                 BackupProcessorChain chain = new BackupProcessorChain(
@@ -39,7 +38,7 @@ namespace io.rz.Flywheel.BackupCLI
                 });
 
                 var executor = new JobExecutor();
-                executor.SubmitBackupJob(new BackupJob(new DirectoryBackupTask(options.Folder, true), chain, options.MetadataFile));
+                executor.SubmitBackupJob(new BackupJob(options.Folder, true, chain, options.MetadataFile));
 
                 executor.JobProgress += executor_JobProgress;
                 executor.AwaitJobDone();
